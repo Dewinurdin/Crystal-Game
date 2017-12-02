@@ -1,58 +1,73 @@
-var tarScore = 0;
-var crysRanNum = 0;
-var win = 0;
-var lose = 0;
-var count = 0;
+//default values/scores
+var wins = 0;
+var loses = 0;
+var scoreCount = 0;
 
+//START GAME: Target number is set, random numbers are set, and then user plays
 
-//appending random number to .targetScore in html
-	tarScore = Math.floor(Math.random()*120)+19;
+// Set different values for each of the crystals (between 1 and 12)
+	var blue = Math.floor(Math.random()*11+1);
+	var green = Math.floor(Math.random()*11+1);
+	var red = Math.floor(Math.random()*11+1);
+	var yellow = Math.floor(Math.random()*11+1);
+	$("#counter").text(scoreCount);
+	
+
+//setting target number
+	var tarScore = Math.floor(Math.random()*101);
 	$("#result").html(tarScore);
-	console.log(tarScore);
+	// console.log(tarScore);
 
-//loop and random value 1-12 on each crystal
-for (var i = 0; i < 4; i++) {
-		crysRanNum = Math.floor(Math.random() * 11 ) + 1;
-		$(".button").click(crysRanNum);
-		console.log(".button");
-		//$(".button").on("click", function() {
-			/*$(".button").html(crysRanNum);
-			console.log(crysRanNum);
-		};
-*/
-//Score Counter
+//to determine win or lose
+function winOrLose(){
+	if (tarScore === scoreCount) {
+		wins++;
+		$("#wins").text(wins);
+		alert("You Win!");
+		resetStart();
+	} else if (scoreCount > tarScore) {
+		loses++;
+		$("#loses").text(loses);
+		alert("You Lose!");
+		resetStart();
+	}
+}
 
-	//$(".button").click(function(){
-	//	count++;
-	///$("#counter").html(count);
-	//console.log("#finalTotal");
-	//});
-		
-};
+//when you click on the crystal a value appears,
+// user keeps clicking on additional crystals until that target is reached(W) or exceeded (L)
+$(".crystal").on("click", function(){
+	var color = $(this).attr("id");
+	if (color === "blue") {
+		scoreCount += blue;
+		$("#counter").text(scoreCount);
+		winOrLose();
+	}
+	if (color === "red") {
+		scoreCount += red;
+		$("#counter").text(scoreCount);
+		winOrLose();
+	}
+	if (color === "green") {
+		scoreCount += green;
+		$("#counter").text(scoreCount);
+		winOrLose();
+	}
+	if (color === "yellow") {
+		scoreCount += yellow;
+		$("#counter").text(scoreCount);
+		winOrLose();
+	}
 
+});
 
-
-
-
-//random number on crystal each has value between 1-12
-// var crysRandom = Math.floor(Math.random() * 11) + 1;
-// console.log(crysRandom);
-
-// FOUR Crystals dislayed as BUTTONS on the page
-// The player will be shown a Random Number at the Start of the game
-// When the player clicks on a crystal, it will add a specific amount of points to the player's total score
-	// Your game will hide this amount until the player clicks on a crystal
-	// When they do click one, update the player's score counter
-
-// The player wins if their total score matches the random number from the beeginning of the game
-// Player loses if their score goes above the random number
-
-// The game restarts whenever the player wins or loses
-	//When thee game begins again, the player should see a new random number. Also all the crystals will have
-	//four new hidden values.
-
-// The random number shown at the start of the game should be between 19-120
-// Each crystal should have a random hidden value between 1-12
-
-// Alert Win or Lose
-
+//reset function to restart the game
+function resetStart(){
+	blue = Math.floor(Math.random()*11+1);
+	green = Math.floor(Math.random()*11+1);
+	red = Math.floor(Math.random()*11+1);
+	yellow = Math.floor(Math.random()*11+1);
+	$("#counter").text(scoreCount);
+	
+	tarScore = Math.floor(Math.random()*101);
+	$("#result").html(tarScore);
+}

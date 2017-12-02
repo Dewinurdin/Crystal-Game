@@ -9,26 +9,14 @@ body {
 .container {
 	width: 100%;
 	max-width: 960px;
-	margin: 20px;
-	clear: both;
 }
 
-div.button:active {
-	background-image: assets/image/blue.png;
-}
-#winLoseBox {
-	width: 30%
-	background-color: green;
-}
-#targetScore {
-	width: 30%;
-	background-color: blue;
-}
-#yourSccore {
-	width: 30%
-	background-color: purple;
-}
-.button {
-	width: 100px;
+.crystal {
 	height: 100px;
+	width: 100px;
+}
+.button-container {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
 }
