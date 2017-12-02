@@ -71,3 +71,5 @@ function resetStart(){
 	tarScore = Math.floor(Math.random()*101);
 	$("#result").html(tarScore);
 }
+
+// I could not figure out how to clear Score Counter back to "Zero" after winning or losing the game.

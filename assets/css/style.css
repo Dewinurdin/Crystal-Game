@@ -4,19 +4,28 @@ body {
 	font-style: #777;
 	font-family: arial, 'helvetiea neue',helvetiea, 'san-serif';
 	text-align: center;
+	background-color: #ddd;
 }
 
 .container {
 	width: 100%;
 	max-width: 960px;
+	margin: 0;
+	clear: both;
 }
 
 .crystal {
 	height: 100px;
 	width: 100px;
 }
-.button-container {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
+
+h1 {
+	margin-bottom: 30px;
+	margin-top: 20px;
+	font-size: 20px;
+
+}
+ 
+p {
+	margin-bottom: 16px;
 }
