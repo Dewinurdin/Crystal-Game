@@ -12,26 +12,12 @@ var scoreCount = 0;
 	var yellow = Math.floor(Math.random()*11+1);
 	$("#counter").text(scoreCount);
 	
+resetStart();
 
 //setting target number
 	var tarScore = Math.floor(Math.random()*101);
 	$("#result").html(tarScore);
 	// console.log(tarScore);
-
-//to determine win or lose
-function winOrLose(){
-	if (tarScore === scoreCount) {
-		wins++;
-		$("#wins").text(wins);
-		alert("You Win!");
-		resetStart();
-	} else if (scoreCount > tarScore) {
-		loses++;
-		$("#loses").text(loses);
-		alert("You Lose!");
-		resetStart();
-	}
-}
 
 //when you click on the crystal a value appears,
 // user keeps clicking on additional crystals until that target is reached(W) or exceeded (L)
@@ -60,16 +46,34 @@ $(".crystal").on("click", function(){
 
 });
 
+//to determine win or lose
+function winOrLose(){
+	if (tarScore === scoreCount) {
+		wins++;
+		$("#wins").text(wins);
+		alert("You Win!");
+		resetStart();
+		console.log(resetStart);
+	} else if (scoreCount > tarScore) {
+		loses++;
+		$("#loses").text(loses);
+		alert("You Lose!");
+
+		resetStart();
+	}
+};
+
 //reset function to restart the game
 function resetStart(){
+	scoreCount = 0;	
 	blue = Math.floor(Math.random()*11+1);
 	green = Math.floor(Math.random()*11+1);
 	red = Math.floor(Math.random()*11+1);
 	yellow = Math.floor(Math.random()*11+1);
 	$("#counter").text(scoreCount);
+
 	
 	tarScore = Math.floor(Math.random()*101);
-	$("#result").html(tarScore);
-}
-
-// I could not figure out how to clear Score Counter back to "Zero" after winning or losing the game.
+	$("#result").text(tarScore);
+	
+};
