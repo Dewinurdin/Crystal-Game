@@ -17,19 +17,20 @@ body {
 .crystal {
 	height: 100px;
 	width: 100px;
+	margin: 20px;
 }
 
 .heading {
 	margin-bottom: 30px;
 	margin-top: 20px;
-	font-size: 40px;
-
-}
- 
-p {
-	margin-bottom: 16px;
+	font-size: 35px;
 }
 
 .main-section {
-	padding: 10px;
+	margin-bottom: 20px;
+}
+
+p {
+	margin-bottom: 20px;
+	font-size: 20px;
 }
